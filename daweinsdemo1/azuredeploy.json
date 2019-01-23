@@ -126,7 +126,7 @@
                 },
                 "method": "post",
                 "body": "@{body('Get_blob_content_using_path')}",
-                "path": "/@{encodeURIComponent('test2')}/messages"
+                "path": "/@{encodeURIComponent('test3')}/messages"
               },
               "runAfter": {
                 "Transform_JSON_to_JSON": [
@@ -191,12 +191,12 @@
           "$connections": {
             "value": {
               "azureblob": {
-                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'eastus', '/managedApis/', 'azureblob')]",
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('LogicAppLocation'), '/managedApis/', 'azureblob')]",
                 "connectionId": "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
                 "connectionName": "[parameters('azureblob_1_Connection_Name')]"
               },
               "azurequeues": {
-                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', 'eastus', '/managedApis/', 'azurequeues')]",
+                "id": "[concat(subscription().id, '/providers/Microsoft.Web/locations/', parameters('LogicAppLocation'), '/managedApis/', 'azurequeues')]",
                 "connectionId": "[resourceId('Microsoft.Web/connections', parameters('azurequeues_1_Connection_Name'))]",
                 "connectionName": "[parameters('azurequeues_1_Connection_Name')]"
               }
